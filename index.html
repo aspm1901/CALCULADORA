@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Calculadora de recompensas</title>
+    <meta name="author" content="Recompensas" />
+    <meta
+      name="description"
+      content="Calculadora de monedas para videojuegos"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="css/grid.css" />
+    <script type="text/javascript">
+      function calcularRecompensas() {
+        var misiones =
+          parseInt(document.getElementById("misiones_completadas").value) || 0;
+        var enemigos =
+          parseInt(document.getElementById("enemigos_derrotados").value) || 0;
+        var recompensa = document.getElementById("recompensa").value;
+
+        var total = 0;
+        switch (recompensa) {
+          case "oro":
+            total = misiones * 100 + enemigos * 10;
+            break;
+          case "gemas":
+            total = misiones * 5 + enemigos * 1;
+            break;
+          case "experiencia":
+            total = misiones * 500 + enemigos * 100;
+            break;
+          default:
+            break;
+        }
+
+        document.getElementById("resultado").innerHTML =
+          "Total de " + recompensa + ": " + total;
+      }
+    </script>
+  </head>
+  <body>
+    <header id="mainheader">
+      <img
+        src="imágenes/World_War_Z_logo.png"
+        height="55"
+        alt="Adventure Logo"
+      />
+      <h1>Recompensas de videojuego</h1>
+    </header>
+    <main>
+      <section class="content-section calculator-container">
+        <h2>Calculadora</h2>
+        <p>
+          Ingresa la cantidad de misiones y enemigos derrotados para otorgarle
+          recompensas:
+        </p>
+        <form class="contact-form">
+          <label for="misiones_completadas">Misiones Completadas:</label>
+          <input
+            type="text"
+            id="misiones_completadas"
+            placeholder="Ingrese el número de misiones"
+          />
+          <label for="enemigos_derrotados"
+            >Cantidad de Enemigos Derrotados</label
+          >
+          <input
+            type="text"
+            id="enemigos_derrotados"
+            placeholder="Ingrese el número de enemigos"
+          />
+          <label for="recompensa">Tipo de recompensa:</label>
+          <select id="recompensa">
+            <option value="oro">Monedas de oro</option>
+            <option value="gemas">Gemas</option>
+            <option value="experiencia">Puntos de experiencia</option>
+          </select>
+          <input
+            type="button"
+            value="Calcular"
+            onclick="calcularRecompensas();"
+          />
+          <p id="resultado"></p>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
