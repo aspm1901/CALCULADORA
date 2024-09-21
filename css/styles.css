@@ -81,14 +81,3 @@ main {
   margin-top: 15px;
   font-weight: bold;
 }
-
-footer {
-  padding: 1rem;
-  text-align: center;
-  font-size: 0.8rem;
-  color: white;
-  background-color: #0c0c0c;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-}
